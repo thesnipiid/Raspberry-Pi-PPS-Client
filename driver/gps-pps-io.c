@@ -442,14 +442,14 @@ ssize_t pps_i_write(struct file *filp, const char __user *buf, size_t count, lof
 			tv2.tv_sec = 0;
 			tv2.tv_nsec = frac;
 		}
-
-		timekeeping_inject_offset(&tv2);
+		/** TODO : find another function to be compliant with linux 4.19.30*/
+		//timekeeping_inject_offset(&tv2);
 	}
 	else if (val[0] == 3){
 		tv2.tv_nsec = 0;
 		tv2.tv_sec = val[1];
-
-		timekeeping_inject_offset(&tv2);
+		/** TODO : find another function to be compliant with linux 4.19.30*/
+		//timekeeping_inject_offset(&tv2);
 	}
 
 	return 0;
